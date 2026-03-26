@@ -129,10 +129,10 @@
   <div class="c-sub" id="cSub"></div>
   <div class="c-dots" id="cDots"><span id="cd0"></span><span id="cd1"></span><span id="cd2"></span><span id="cd3"></span></div>
   <div class="c-tag" id="cTag">value is perspective</div>
-  <div style="position:absolute; bottom:32px; left:50%; transform:translateX(-50%); animation:bounce 2s ease infinite;">
+  <div id="scrollArrow" style="position:absolute; bottom:32px; left:50%; transform:translateX(-50%); opacity:0; transition:opacity 0.8s ease; animation:none;">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(212,168,83,0.6)" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
   </div>
-  <style>@keyframes bounce { 0%,100% { transform:translateX(-50%) translateY(0); opacity:0.6; } 50% { transform:translateX(-50%) translateY(8px); opacity:1; } }</style>
+  <style>@keyframes bounce { 0%,100% { transform:translateX(-50%) translateY(0); opacity:1; } 50% { transform:translateX(-50%) translateY(8px); opacity:0.5; } }</style>
 </div>
 <script>
 (function(){
@@ -428,6 +428,10 @@ async function run(){
   tag.textContent = 'see it \u00b7 structure it \u00b7 move it \u00b7 scale it';
   tag.style.color = '';
   tag.classList.add('on');
+
+  var arrow = document.getElementById('scrollArrow');
+  arrow.style.opacity = '1';
+  arrow.style.animation = 'bounce 2s ease infinite';
 }
 
 wait(400).then(run);
